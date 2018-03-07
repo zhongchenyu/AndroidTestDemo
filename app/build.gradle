@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion 25
+  buildToolsVersion "25.0.2"
+  defaultConfig {
+    applicationId "chenyu.memorydemo"
+    minSdkVersion 19
+    targetSdkVersion 25
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    debug {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+          output.outputFile = new File(
+                  output.outputFile.parent,
+                  //"MemoryDemo${variant.buildType.name}-${defaultConfig.versionName}-${releaseTime()}.apk".toLowerCase())
+                  "MemoryDemo${variant.buildType.name}-${defaultConfig.versionName}.apk".toLowerCase())
+        }
+      }
+    }
+  }
+}
+
+//获取时间
+def releaseTime() {
+  return new Date().format("yyyy-MM-dd-HH-mm-ss", TimeZone.getTimeZone("GMT+08:00"))
+}
+
+dependencies {
+  compile fileTree(include: ['*.jar'], dir: 'libs')
+  androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    exclude group: 'com.android.support', module: 'support-annotations'
+  })
+  androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
+  //compile 'com.android.support:support-annotations:25.3.0'
+  compile 'com.android.support:appcompat-v7:25.3.0'
+  compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
+  compile 'com.jakewharton:butterknife:8.8.1'
+  compile 'io.reactivex.rxjava2:rxjava:2.1.3'
+  compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+  testCompile 'junit:junit:4.12'
+  annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+}

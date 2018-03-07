@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="chenyu.memorydemo.BinderServiceActivity" tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+  <Button
+      android:text="Bind" android:textAllCaps="false"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/button_bind_service"
+      android:layout_marginStart="33dp"
+      tools:layout_constraintTop_creator="1" android:layout_marginTop="25dp"
+      tools:layout_constraintLeft_creator="1" app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
+  <Button
+      android:text="UnBind" android:textAllCaps="false"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/button_unbind_service"
+      android:layout_marginEnd="134dp"
+      tools:layout_constraintTop_creator="1" tools:layout_constraintRight_creator="1"
+      android:layout_marginStart="129dp" app:layout_constraintRight_toRightOf="parent"
+      android:layout_marginTop="25dp" tools:layout_constraintLeft_creator="1"
+      app:layout_constraintLeft_toLeftOf="@+id/button_bind_service" app:layout_constraintTop_toTopOf="parent"/>
+  <Button
+      android:text="Start" android:textAllCaps="false"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/button_start_service"
+      tools:layout_constraintTop_creator="1" android:layout_marginTop="15dp"
+      app:layout_constraintTop_toBottomOf="@+id/button_bind_service" tools:layout_constraintLeft_creator="1"
+      app:layout_constraintLeft_toLeftOf="@+id/button_bind_service"/>
+  <Button
+      android:text="Stop" android:textAllCaps="false"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/button_stop_service"
+      tools:layout_constraintTop_creator="1" tools:layout_constraintRight_creator="1"
+      app:layout_constraintRight_toRightOf="@+id/button_unbind_service" android:layout_marginTop="15dp"
+      app:layout_constraintTop_toBottomOf="@+id/button_unbind_service" tools:layout_constraintLeft_creator="1"
+      app:layout_constraintLeft_toLeftOf="@+id/button_unbind_service"/>
+</android.support.constraint.ConstraintLayout>
